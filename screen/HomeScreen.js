@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { Avatar, Button, Card, Title, Paragraph } from 'react-native-paper';
+import { ScrollView} from 'react-native';
 
-const LeftContent = props => <Avatar.Icon {...props} icon="folder" />
-
+ 
 const HomeScreen = () => (
+<ScrollView>
   <Card>
     <Card.Cover source={{ uri: 'https://picsum.photos/700' }} />
      <Card.Content>
@@ -17,6 +18,8 @@ const HomeScreen = () => (
       <Button mode="outlined" color= "black" >Buy Tickets</Button>
     </Card.Actions>
   </Card>
+  
+  </ScrollView>
 );
 
 export default HomeScreen;
