@@ -11,7 +11,7 @@ import {
 import { ScrollView } from 'react-native';
 
 const HomeScreen = () => {
-  let [data, setData] = useState({});
+  let [data, setData] = useState([]);
   fetch(
     'https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&size=20&sort=date,asc&geoPoint=45.5,23.2&apikey=gDZhYbDRNHjEkiqaRAwIikD3r5FWWTGs',
   )
@@ -19,35 +19,33 @@ const HomeScreen = () => {
       return response.json();
     })
     .then((json) => {
-      setData(json);
+      setData(json._embedded.events);
       console.log(json);
     });
   return (
     <ScrollView>
-      {data.map}
-      <Card>
-        <Card.Cover source={{ uri: 'https://picsum.photos/700' }} />
-        <Card.Content>
-          <Title>Card title</Title>
-          <Paragraph style={{ fontWeight: 'bold' }}> Segment </Paragraph>
-          <Paragraph> Genre </Paragraph>
-          <Paragraph> Info </Paragraph>
-        </Card.Content>
-        <Card.Actions>
-          <Button mode="outlined" style={{ marginRight: 10 }} color="black">
-            Address
-          </Button>
-          <Button mode="outlined" color="black">
-            Buy Tickets
-          </Button>
-        </Card.Actions>
-        <TextInput
-          value={data}
-          onChangeText={(data) => {
-            setData(data);
-          }}
-        />
-      </Card>
+      
+      {data.map((eachData) => (
+
+<Card key = {eachData.id}>
+<Card.Cover source={{ uri: 'https://picsum.photos/700' }} />
+<Card.Content>
+  <Title>{eachData.name}</Title>
+  <Paragraph style={{ fontWeight: 'bold' }}> Segment </Paragraph>
+  <Paragraph> Genre </Paragraph>
+  <Paragraph> Info </Paragraph>
+</Card.Content>
+<Card.Actions>
+  <Button mode="outlined" style={{ marginRight: 10 }} color="black">
+    Address
+  </Button>
+  <Button mode="outlined" color="black">
+    Buy Tickets
+  </Button>
+</Card.Actions>
+</Card>))
+     
+      }
     </ScrollView>
   );
 };
