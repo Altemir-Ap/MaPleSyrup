@@ -3,6 +3,7 @@ import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from './screen/HomeScreen';
+import MapScreen from './screen/MapScreen';
 
 const Stack = createStackNavigator();
 const App = () => {
@@ -11,6 +12,10 @@ const App = () => {
       <Stack.Navigator>
         <Stack.Screen
       
+      name="Map"
+      component={MapScreen}
+      />
+      <Stack.Screen
         name="Home"
         component={HomeScreen}
         options={{title: 'Events'}}
