@@ -13,7 +13,7 @@ import { ScrollView } from 'react-native';
 const HomeScreen = () => {
   let [data, setData] = useState([]);
   fetch(
-    'https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&size=20&sort=date,asc&geoPoint=45.5,23.2&apikey=gDZhYbDRNHjEkiqaRAwIikD3r5FWWTGs',
+    'https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&size=20&sort=date,asc&geoPoint=45.5,23.2&apikey=EUpr9gceb0gVxii8dxP69MHTeLyxYujB',
   )
     .then((response) => {
       return response.json();
@@ -28,7 +28,7 @@ const HomeScreen = () => {
       {data.map((eachData) => (
 
 <Card key = {eachData.id}>
-<Card.Cover source={{ uri: 'https://picsum.photos/700' }} />
+<Card.Cover key = {eachData.images[0].url} source={{ uri: eachData.images[2].url }} />
 <Card.Content>
   <Title>{eachData.name}</Title>
   <Paragraph style={{ fontWeight: 'bold' }}> Segment </Paragraph>
