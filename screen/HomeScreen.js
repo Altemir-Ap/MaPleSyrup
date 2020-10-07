@@ -31,11 +31,17 @@ const HomeScreen = () => {
             source={{ uri: eachData.images[2].url }}
           />
           <Card.Content>
+            
             <Title>{eachData.name}</Title>
-            <Paragraph style={{ fontWeight: 'bold' }}> Segment </Paragraph>
-            <Paragraph> Genre </Paragraph>
-            <Paragraph> Info </Paragraph>
+            
+            <Paragraph style={{ fontWeight: 'bold' }}> {eachData.classifications[0].segment.name}</Paragraph>
+            
+            <Paragraph> {eachData.classifications[0].genre.name}</Paragraph>
+            
+            <Paragraph> {eachData.pleaseNote}</Paragraph> 
+          
           </Card.Content>
+          
           <Card.Actions>
             <Button mode="outlined" style={{ marginRight: 10 }} color="black">
               Address
