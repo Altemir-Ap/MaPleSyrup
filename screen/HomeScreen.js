@@ -38,7 +38,7 @@ const HomeScreen = () => {
             
             <Paragraph> {eachData.classifications[0].genre.name}</Paragraph>
             
-            <Paragraph> {eachData.info}</Paragraph>
+            <Paragraph> {eachData.pleaseNote}</Paragraph> 
           
           </Card.Content>
           
