@@ -1,6 +1,6 @@
 import * as React from 'react';
 import MapView from 'react-native-maps';
-import { Marker } from 'react-native-maps';
+import { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 import { StyleSheet, Text, View, Linking } from 'react-native';
 import { Button } from 'react-native-paper';
 
@@ -13,6 +13,7 @@ const MapC = ({ route }) => {
   return (
     <View style={styles.container}>
       <MapView
+        provider={PROVIDER_GOOGLE}
         initialRegion={{
           latitude: lat,
           longitude: lng,

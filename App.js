@@ -18,7 +18,7 @@ const App = () => {
             headerTitleStyle: { alignSelf: 'center' },
           }}
         />
-        <Stack.Screen name="MapC" component={MapC} />
+        <Stack.Screen name="Event Address" component={MapC} />
       </Stack.Navigator>
     </NavigationContainer>
   );

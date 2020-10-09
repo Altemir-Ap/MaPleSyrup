@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useState } from 'react';
 import { Button, Card, Title, Paragraph } from 'react-native-paper';
-import { ScrollView, View } from 'react-native';
+import { ScrollView, View ,Linking } from 'react-native';
 import apiKey from './key.js';
 import * as Location from 'expo-location';
 
@@ -59,7 +59,7 @@ const HomeScreen = ({ navigation }) => {
             >
               <Card.Cover
                 key={eachData.images[0].url}
-                source={{ uri: eachData.images[2].url }}
+                source={{ uri: eachData.images[4].url }}
               />
 
               <Card.Content>
@@ -74,7 +74,7 @@ const HomeScreen = ({ navigation }) => {
               <Card.Actions>
                 <Button
                   mode="contained"
-                  onPress={() => navigation.navigate('MapC', eachData)}
+                  onPress={() => navigation.navigate('Event Address', eachData)}
                   color={'grey'}
                   dark={true}
                 >
