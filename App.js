@@ -6,8 +6,10 @@ import HomeScreen from './screen/HomeScreen';
 import MapC from './screen/MapC';
 
 const Stack = createStackNavigator();
+//Main Component
 const App = () => {
   return (
+    //Navigation Container that control navigation between screens
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen

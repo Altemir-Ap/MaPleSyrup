@@ -5,12 +5,14 @@ import { ScrollView, View ,Linking } from 'react-native';
 import apiKey from './key.js';
 import * as Location from 'expo-location';
 
+//HomeScreen Component
 const HomeScreen = ({ navigation }) => {
   let [data, setData] = useState([]);
   const [lat, setLatitude] = React.useState(null);
   const [lng, setLongitude] = React.useState(null);
   const [errorMsg, setErrorMsg] = React.useState(null);
 
+  //Function to get gps location 
   React.useEffect(() => {
     (async () => {
       let { status } = await Location.requestPermissionsAsync();
@@ -23,6 +25,7 @@ const HomeScreen = ({ navigation }) => {
     })();
   }, []);
 
+  //Function to fetch data from ticketmaster api
   React.useEffect(() => {
     fetch(
       `https://app.ticketmaster.com/discovery/v2/events.json?keyword=music&geoPoint=${lat},${lng}&radius=20&unit=km&sort=date,asc&size=20&apikey=${apiKey}`,
@@ -43,7 +46,10 @@ const HomeScreen = ({ navigation }) => {
         }}
       >
         {data
+        //filter to no render events that were cancelled
           .filter(({ dates }) => dates.status.code != 'cancelled')
+          
+          // Card to render each music events that come from TicketMaser API
           .map((eachData) => (
             <Card
               key={eachData.id}
@@ -72,6 +78,8 @@ const HomeScreen = ({ navigation }) => {
               </Card.Content>
 
               <Card.Actions>
+
+                { /*Button to navigate to MapC Screen*/}
                 <Button
                   mode="contained"
                   onPress={() => navigation.navigate('Event Address', eachData)}
@@ -80,6 +88,8 @@ const HomeScreen = ({ navigation }) => {
                 >
                   Address
                 </Button>
+
+                {/* Button to externally open ticket link*/}
                 <Button
                   mode="outlined"
                   onPress={() => {

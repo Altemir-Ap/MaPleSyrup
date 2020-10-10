@@ -1,11 +1,10 @@
 {
   "expo": {
-    "name": "mobdev",
-    "slug": "mobdev",
+    "name": "MaPleSyrup",
+    "slug": "MaPleSyrup",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "sdkVersion": "38.0.0",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -14,18 +13,11 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
-      "supportsTablet": true,
-      "bundleIdentifier": "com.mapsong.mapsy",
-      "buildNumber": "1.0.0"
-    },
-    "android": {
-      "package": "com.mapsong.mapsy",
-      "config": {
-        "googleMaps": { "apiKey": "xxx" }
-      },
-      "versionCode": 1
+      "supportsTablet": true
     },
     "web": {
       "favicon": "./assets/favicon.png"
