@@ -85,6 +85,7 @@ const HomeScreen = ({ navigation }) => {
                   onPress={() => navigation.navigate('Event Address', eachData)}
                   color={'grey'}
                   dark={true}
+                  style={{marginRight:20, width:'33%'}}
                 >
                   Address
                 </Button>
